@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Life Lessons</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="LargeBlackboard"]</xpath>
+          <value>
+            <li Class="LifeLessons.BuildingProficiencyExtension">
+              <templateDef>FurnitureC2</templateDef>
+              <hardRequirement>False</hardRequirement>
+            </li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="TeachersDesk"]/comps/li[@Class="CompProperties_AffectedByFacilities"]/linkableFacilities</xpath>
+          <value>
+            <li>LargeBlackboard</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="TeachersDesk"]/comps/li[@Class="LifeLessons.CompProperties_TeachingManager"]/interactableThings</xpath>
+          <value>
+            <li>LargeBlackboard</li>
+          </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+          <xpath>Defs/LifeLessons.LearningActivityDef[defName="LLBrainstorm"]/validWorkstations</xpath>
+          <value>
+            <li>LargeBlackboard</li>
+          </value>
+        </li>
+      </operations>
+    </match>
+  </Operation>
+</Patch>
